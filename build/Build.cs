@@ -72,7 +72,7 @@ partial class Build : NukeBuild
 
     Project CommonProject => Solution.GetProject("Nuke.Common").NotNull();
     Project GlobalToolProject => Solution.GetProject("Nuke.GlobalTool").NotNull();
-    Project CodeGenerationProject => Solution.GetProject("Nuke.CodeGeneration").NotNull();
+    Project MSBuildTasksProject => Solution.GetProject("Nuke.MSBuildTasks").NotNull();
 
     Target Compile => _ => _
         .DependsOn(Restore)
@@ -98,17 +98,10 @@ partial class Build : NukeBuild
                 .SetProject(GlobalToolProject));
 
             DotNetPublish(s => publishSettings
-                .SetProject(CommonProject)
+                .SetProject(MSBuildTasksProject)
                 .SetFramework("netstandard2.0"));
             DotNetPublish(s => publishSettings
-                .SetProject(CommonProject)
-                .SetFramework("net461"));
-
-            DotNetPublish(s => publishSettings
-                .SetProject(CodeGenerationProject)
-                .SetFramework("netstandard2.0"));
-            DotNetPublish(s => publishSettings
-                .SetProject(CodeGenerationProject)
+                .SetProject(MSBuildTasksProject)
                 .SetFramework("net461"));
         });
 
