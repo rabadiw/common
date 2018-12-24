@@ -6,7 +6,6 @@ using System;
 using System.Linq;
 using JetBrains.Annotations;
 using Microsoft.Build.Framework;
-using Nuke.Common.Git;
 using Nuke.Common;
 using Nuke.Common.IO;
 using static Nuke.Common.IO.PathConstruction;
@@ -37,7 +36,6 @@ namespace Nuke.CodeGeneration
         public bool Execute()
         {
             var specificationFiles = SpecificationFiles.Select(x => x.GetMetadata("Fullpath")).ToList();
-            var repository = ControlFlow.SuppressErrors(() => GitRepository.FromLocalDirectory(BaseDirectory));
 
             CodeGenerator.GenerateCode(
                 specificationFiles,
@@ -50,9 +48,7 @@ namespace Nuke.CodeGeneration
                         ? BaseNamespace
                         : string.IsNullOrEmpty(BaseNamespace)
                             ? x.Name
-                            : $"{BaseNamespace}.{x.Name}",
-                sourceFileProvider: x =>
-                    repository.IsGitHubRepository() ? repository?.GetGitHubDownloadUrl(x.SpecificationFile) : null);
+                            : $"{BaseNamespace}.{x.Name}");
 
             if (UpdateReferences)
                 ReferenceUpdater.UpdateReferences(specificationFiles);
