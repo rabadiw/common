@@ -10,30 +10,30 @@ using Nuke.Common.IO;
 
 namespace Nuke.Common
 {
-    internal static class Constants
+    public class Constants
     {
-        internal const string ConfigurationFileName = ".nuke";
+        public const string ConfigurationFileName = ".nuke";
         
-        internal const string TargetsSeparator = "+";
-        internal const string InvokedTargetsParameterName = "Target";
-        internal const string SkippedTargetsParameterName = "Skip";
+        public const string TargetsSeparator = "+";
+        public const string InvokedTargetsParameterName = "Target";
+        public const string SkippedTargetsParameterName = "Skip";
         
-        internal const string CompletionParameterName = "shell-completion";
+        public const string CompletionParameterName = "shell-completion";
 
         [CanBeNull]
-        internal static PathConstruction.AbsolutePath TryGetRootDirectoryFrom(string startDirectory)
+        public static PathConstruction.AbsolutePath TryGetRootDirectoryFrom(string startDirectory)
         {
             return (PathConstruction.AbsolutePath) FileSystemTasks.FindParentDirectory(
                 startDirectory,
                 predicate: x => x.GetFiles(ConfigurationFileName).Any());
         }
 
-        internal static PathConstruction.AbsolutePath GetTemporaryDirectory(PathConstruction.AbsolutePath rootDirectory)
+        public static PathConstruction.AbsolutePath GetTemporaryDirectory(PathConstruction.AbsolutePath rootDirectory)
         {
             return rootDirectory / ".tmp";
         }
 
-        internal static PathConstruction.AbsolutePath GetCompletionFile(PathConstruction.AbsolutePath rootDirectory)
+        public static PathConstruction.AbsolutePath GetCompletionFile(PathConstruction.AbsolutePath rootDirectory)
         {
             var completionFileName = CompletionParameterName + ".yml";
             return File.Exists(rootDirectory / completionFileName)
@@ -41,7 +41,7 @@ namespace Nuke.Common
                 : GetTemporaryDirectory(rootDirectory) / completionFileName;
         }
         
-        internal static PathConstruction.AbsolutePath GetBuildAttemptFile(PathConstruction.AbsolutePath rootDirectory)
+        public static PathConstruction.AbsolutePath GetBuildAttemptFile(PathConstruction.AbsolutePath rootDirectory)
         {
             return GetTemporaryDirectory(rootDirectory) / "build-attempt.log";
         }

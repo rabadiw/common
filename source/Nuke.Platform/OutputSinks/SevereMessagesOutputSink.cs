@@ -12,7 +12,7 @@ namespace Nuke.Common.OutputSinks
 {
     [UsedImplicitly]
     [ExcludeFromCodeCoverage]
-    internal class SevereMessagesOutputSink : IOutputSink
+    public class SevereMessagesOutputSink : IOutputSink
     {
         private readonly IOutputSink _outputSink;
         private readonly List<Tuple<LogLevel, string>> _severeMessages;

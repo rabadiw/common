@@ -14,7 +14,7 @@ using Nuke.Common.Utilities.Collections;
 
 namespace Nuke.Common.Tooling
 {
-    internal class ProcessManager : IProcessManager
+    public class ProcessManager : IProcessManager
     {
         private static readonly char[] s_pathSeparators = { EnvironmentInfo.IsWin ? ';' : ':' };
 

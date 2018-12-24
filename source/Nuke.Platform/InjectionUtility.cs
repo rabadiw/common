@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace Nuke.Common.Execution
 {
-    internal static class InjectionUtility
+    public static class InjectionUtility
     {
         public static void InjectValues<T>(T instance = default)
         {
@@ -20,7 +20,7 @@ namespace Nuke.Common.Execution
 
             foreach (var member in injectionMembers)
             {
-                if (member.DeclaringType == typeof(NukeBuild))
+                if (member.DeclaringType.Name.Equals("NukeBuild"))
                     continue;
                 
                 var attributes = member.GetCustomAttributes().OfType<InjectionAttributeBase>().ToList();

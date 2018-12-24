@@ -13,7 +13,7 @@ namespace Nuke.Common.OutputSinks
 {
     [UsedImplicitly]
     [ExcludeFromCodeCoverage]
-    internal class ConsoleOutputSink : IOutputSink
+    public class ConsoleOutputSink : IOutputSink
     {
         public virtual void Write(string text)
         {

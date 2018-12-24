@@ -12,7 +12,7 @@ namespace Nuke.Common.OutputSinks
 {
     [UsedImplicitly]
     [ExcludeFromCodeCoverage]
-    internal class BitriseOutputSink : ConsoleOutputSink
+    public class BitriseOutputSink : ConsoleOutputSink
     {
         public override IDisposable WriteBlock(string text)
         {
