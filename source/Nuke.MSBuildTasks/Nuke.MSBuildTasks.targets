@@ -14,7 +14,7 @@
     <NukeUpdateReferences Condition="'$(NukeUpdateReferences)' == ''">True</NukeUpdateReferences>
   </PropertyGroup>
   
-  <Target Name="NukeCodeGeneration" BeforeTargets="CoreCompile"
+  <Target Name="NukeCodeGeneration" BeforeTargets="Restore"
           Condition="'$(NukeCodeGeneration)' == 'True' And '$(DOTNET_EXE)' == ''">
     <!-- TODO: output all metadata files -->
     <CodeGeneratorTask
