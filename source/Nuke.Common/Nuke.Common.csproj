@@ -30,6 +30,10 @@
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     <PackageReference Include="YamlDotNet" Version="5.2.1" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nuke.Platform\Nuke.Platform.csproj" />
+  </ItemGroup>
   
   <ItemGroup Condition="'$(TargetFramework)' == ''">
     <None Include="BuildTasks\$(MSBuildProjectName).targets" PackagePath="build\netstandard2.0" Pack="true" />
