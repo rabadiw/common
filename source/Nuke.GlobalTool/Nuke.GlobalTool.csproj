@@ -11,10 +11,6 @@
   <Import Project="..\Configuration.props" />
 
   <ItemGroup>
-    <PackageReference Include="JetBrains.Annotations" Version="2018.2.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Nuke.Common\Nuke.Common.csproj" />
   </ItemGroup>
   
