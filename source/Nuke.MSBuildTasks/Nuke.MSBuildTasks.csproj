@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  
+  <Import Project="..\Package.props" />
+  <Import Project="..\Configuration.props" />
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build" Version="*" />
+    <PackageReference Include="Microsoft.Build.Framework" Version="*" />
+    <PackageReference Include="Microsoft.Build.Tasks.Core" Version="*" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" Version="*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Nuke.CodeGeneration\Nuke.CodeGeneration.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == ''">
+    <None Include="$(MSBuildProjectName).targets" PackagePath="build\netstandard2.0" Pack="true" />
+    <None Include="$(MSBuildProjectName).targets" PackagePath="build\net461" Pack="true" />
+    <None Include="bin\$(Configuration)\netstandard2.0\publish\**\*.*" PackagePath="build\netstandard2.0" Pack="true" />
+    <None Include="bin\$(Configuration)\net461\publish\**\*.*" PackagePath="build\net461" Pack="true" />
+  </ItemGroup>
+  
+</Project>
