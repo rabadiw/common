@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using Nuke.Common;
 using Nuke.Common.Git;
+using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;

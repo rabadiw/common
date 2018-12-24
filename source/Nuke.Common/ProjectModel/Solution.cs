@@ -18,10 +18,10 @@ namespace Nuke.Common.ProjectModel
         internal Dictionary<PrimitiveProject, SolutionFolder> PrimitiveProjectParents { get; } = new Dictionary<PrimitiveProject, SolutionFolder>();
 
         [CanBeNull]
-        public PathConstruction.AbsolutePath Path { get; set; }
+        public AbsolutePath Path { get; set; }
 
         [CanBeNull]
-        public PathConstruction.AbsolutePath Directory => Path?.Parent;
+        public AbsolutePath Directory => Path?.Parent;
         
         public string[] Header { get; set; }
         public IDictionary<string, string> Properties { get; set; }
@@ -135,7 +135,7 @@ namespace Nuke.Common.ProjectModel
 
         public void SaveAs(string fileName)
         {
-            Path = (PathConstruction.AbsolutePath) fileName;
+            Path = (AbsolutePath) fileName;
             Save();
         }
 

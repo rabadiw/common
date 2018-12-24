@@ -4,9 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using GlobExpressions;
@@ -85,29 +82,29 @@ namespace Nuke.Common.IO
             return globPatterns.SelectMany(x => directoryInfo.GlobDirectories(x)).Select(x => x.FullName);
         }
 
-        private const char WinSeparator = '\\';
-        private const char UncSeparator = '\\';
-        private const char UnixSeparator = '/';
+        public const char WinSeparator = '\\';
+        public const char UncSeparator = '\\';
+        public const char UnixSeparator = '/';
 
-        private static bool IsSameDirectory([CanBeNull] string pathPart)
+        internal static bool IsSameDirectory([CanBeNull] string pathPart)
             => pathPart?.Length == 1 &&
                pathPart[index: 0] == '.';
 
-        private static bool IsUpwardsDirectory([CanBeNull] string pathPart)
+        internal static bool IsUpwardsDirectory([CanBeNull] string pathPart)
             => pathPart?.Length == 2 &&
                pathPart[index: 0] == '.' &&
                pathPart[index: 1] == '.';
 
-        private static bool IsWinRoot([CanBeNull] string root)
+        internal static bool IsWinRoot([CanBeNull] string root)
             => root?.Length == 2 &&
                char.IsLetter(root[index: 0]) &&
                root[index: 1] == ':';
 
-        private static bool IsUnixRoot([CanBeNull] string root)
+        internal static bool IsUnixRoot([CanBeNull] string root)
             => root?.Length == 1 &&
                root[index: 0] == UnixSeparator;
 
-        private static bool IsUncRoot([CanBeNull] string root)
+        internal static bool IsUncRoot([CanBeNull] string root)
             => root?.Length >= 3 &&
                root[index: 0] == UncSeparator &&
                root[index: 1] == UncSeparator &&
@@ -115,9 +112,9 @@ namespace Nuke.Common.IO
 
         private static string GetHeadPart([CanBeNull] string str, int count) => new string((str ?? string.Empty).Take(count).ToArray());
 
-        private static bool HasUnixRoot([CanBeNull] string path) => IsUnixRoot(GetHeadPart(path, count: 1));
-        private static bool HasUncRoot([CanBeNull] string path) => IsUncRoot(GetHeadPart(path, count: 3));
-        private static bool HasWinRoot([CanBeNull] string path) => IsWinRoot(GetHeadPart(path, count: 2));
+        public static bool HasUnixRoot([CanBeNull] string path) => IsUnixRoot(GetHeadPart(path, count: 1));
+        public static bool HasUncRoot([CanBeNull] string path) => IsUncRoot(GetHeadPart(path, count: 3));
+        public static bool HasWinRoot([CanBeNull] string path) => IsWinRoot(GetHeadPart(path, count: 2));
 
         public static bool HasPathRoot([CanBeNull] string path) => GetPathRoot(path) != null;
 
@@ -250,152 +247,6 @@ namespace Nuke.Common.IO
             return IsUnixRoot(path) // TODO: "//" ?
                 ? path
                 : path.TrimEnd(WinSeparator, UnixSeparator, UncSeparator);
-        }
-
-        [DebuggerDisplay("{" + nameof(_path) + "}")]
-        public class RelativePath
-        {
-            private readonly string _path;
-            private readonly char? _separator;
-
-            protected RelativePath(string path, char? separator = null)
-            {
-                _path = path;
-                _separator = separator;
-            }
-
-            public static explicit operator RelativePath([CanBeNull] string path)
-            {
-                if (path is null)
-                    return null;
-                
-                return new RelativePath(NormalizePath(path));
-            }
-
-            public static implicit operator string([CanBeNull] RelativePath path)
-            {
-                return path?._path;
-            }
-
-            public static RelativePath operator /(RelativePath path1, [CanBeNull] string path2)
-            {
-                var separator = path1.NotNull("path1 != null")._separator;
-                return new RelativePath(NormalizePath(Combine(path1, (RelativePath) path2, separator), separator), separator);
-            }
-
-            public override string ToString()
-            {
-                return _path;
-            }
-        }
-
-        public class UnixRelativePath : RelativePath
-        {
-            protected UnixRelativePath(string path, char? separator)
-                : base(path, separator)
-            {
-            }
-
-            public static explicit operator UnixRelativePath([CanBeNull] string path)
-            {
-                return new UnixRelativePath(NormalizePath(path, UnixSeparator), UnixSeparator);
-            }
-        }
-
-        public class WinRelativePath : RelativePath
-        {
-            protected WinRelativePath(string path, char? separator)
-                : base(path, separator)
-            {
-            }
-
-            public static explicit operator WinRelativePath([CanBeNull] string path)
-            {
-                return new WinRelativePath(NormalizePath(path, WinSeparator), WinSeparator);
-            }
-        }
-
-        [DebuggerDisplay("{" + nameof(_path) + "}")]
-        [TypeConverter(typeof(TypeConverter))]
-        public class AbsolutePath
-        {
-            public class TypeConverter : System.ComponentModel.TypeConverter
-            {
-                public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
-                {
-                    return sourceType == typeof(string) || base.CanConvertFrom(context, sourceType);
-                }
-        
-                public override object ConvertFrom(ITypeDescriptorContext context, CultureInfo culture, object value)
-                {
-                    if (value is string stringValue)
-                    {
-                        return (AbsolutePath) (HasPathRoot(stringValue)
-                            ? stringValue
-                            : Combine(EnvironmentInfo.WorkingDirectory, stringValue));
-                    }
-
-                    return base.ConvertFrom(context, culture, value);
-                }
-            }
-
-            private readonly string _path;
-
-            private AbsolutePath(string path)
-            {
-                _path = NormalizePath(path);
-            }
-
-            public static explicit operator AbsolutePath([CanBeNull] string path)
-            {
-                if (path is null)
-                    return null;
-                
-                ControlFlow.Assert(HasPathRoot(path), $"Path '{path}' must be rooted.");
-                return new AbsolutePath(path);
-            }
-
-            public static implicit operator string([CanBeNull] AbsolutePath path)
-            {
-                return path?.ToString();
-            }
-
-            public AbsolutePath Parent =>
-                !IsWinRoot(_path.TrimEnd(WinSeparator)) && !IsUncRoot(_path) && !IsUnixRoot(_path)
-                    ? this / ".."
-                    : null;
-
-            public static AbsolutePath operator /(AbsolutePath path1, [CanBeNull] string path2)
-            {
-                return new AbsolutePath(Combine(path1.NotNull("path1 != null"), path2));
-            }
-
-            protected bool Equals(AbsolutePath other)
-            {
-                var stringComparison = HasWinRoot(_path) ? StringComparison.OrdinalIgnoreCase : StringComparison.Ordinal;
-                return string.Equals(_path, other._path, stringComparison);
-            }
-
-            public override bool Equals(object obj)
-            {
-                if (ReferenceEquals(null, obj))
-                    return false;
-                if (ReferenceEquals(this, obj))
-                    return true;
-                if (obj.GetType() != GetType())
-                    return false;
-                return Equals((AbsolutePath) obj);
-            }
-
-            public override int GetHashCode()
-            {
-                return _path?.GetHashCode() ?? 0;
-            }
-
-            public override string ToString()
-            {
-                return _path;
-            }
         }
     }
 }

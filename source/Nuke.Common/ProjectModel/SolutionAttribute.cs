@@ -53,7 +53,7 @@ namespace Nuke.Common.ProjectModel
         // TODO: for just [Solution] without parameter being passed, do wildcard search?
         private string GetSolutionFile(string memberName)
         {
-            var parameterValue = ParameterService.Instance.GetParameter<PathConstruction.AbsolutePath>(memberName);
+            var parameterValue = ParameterService.Instance.GetParameter<AbsolutePath>(memberName);
             if (parameterValue != null)
                 return parameterValue;
 
@@ -76,7 +76,7 @@ namespace Nuke.Common.ProjectModel
             ControlFlow.Assert(File.Exists(solutionFile),
                 $"Solution file '{solutionFile}' provided via {Constants.ConfigurationFileName} does not exist.");
 
-            return (PathConstruction.AbsolutePath) solutionFile;
+            return (AbsolutePath) solutionFile;
         }
     }
 }

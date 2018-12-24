@@ -5,6 +5,7 @@
 using Nuke.CodeGeneration.Model;
 using Nuke.Common;
 using Nuke.Common.Git;
+using Nuke.Common.IO;
 using static Nuke.CodeGeneration.CodeGenerator;
 using static Nuke.CodeGeneration.ReferenceUpdater;
 using static Nuke.CodeGeneration.SchemaGenerator;

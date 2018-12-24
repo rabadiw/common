@@ -16,8 +16,8 @@ namespace Nuke.Common.Tests
         [WindowsFact]
         public void Test()
         {
-            var currentDirectory = (PathConstruction.AbsolutePath) Directory.GetCurrentDirectory();
-            var projectFile = currentDirectory / ".." / ".." / ".." / ".." / "Nuke.Common" / "Nuke.Common.csproj";
+            var rootDirectory = Constants.TryGetRootDirectoryFrom(Directory.GetCurrentDirectory()).NotNull("rootDirectory != null");
+            var projectFile = rootDirectory / "source" / "Nuke.Common" / "Nuke.Common.csproj";
 
             var project = MSBuildTasks.MSBuildParseProject(projectFile, x => x.SetProperty("TargetFramework", "netstandard2.0"));
             project.IsSdkProject.Should().BeTrue();

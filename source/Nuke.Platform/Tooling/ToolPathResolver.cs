@@ -37,7 +37,7 @@ namespace Nuke.Common.Tooling
             string GetEmbeddedPackagesDirectory()
             {
                 var assemblyDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                var embeddedDirectory = (PathConstruction.AbsolutePath) assemblyDirectory / packageId;
+                var embeddedDirectory = (AbsolutePath) assemblyDirectory / packageId;
                 return Directory.Exists(embeddedDirectory) ? embeddedDirectory : null;
             }
 

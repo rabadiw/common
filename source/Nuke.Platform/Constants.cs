@@ -21,19 +21,19 @@ namespace Nuke.Common
         public const string CompletionParameterName = "shell-completion";
 
         [CanBeNull]
-        public static PathConstruction.AbsolutePath TryGetRootDirectoryFrom(string startDirectory)
+        public static AbsolutePath TryGetRootDirectoryFrom(string startDirectory)
         {
-            return (PathConstruction.AbsolutePath) FileSystemTasks.FindParentDirectory(
+            return (AbsolutePath) FileSystemTasks.FindParentDirectory(
                 startDirectory,
                 predicate: x => x.GetFiles(ConfigurationFileName).Any());
         }
 
-        public static PathConstruction.AbsolutePath GetTemporaryDirectory(PathConstruction.AbsolutePath rootDirectory)
+        public static AbsolutePath GetTemporaryDirectory(AbsolutePath rootDirectory)
         {
             return rootDirectory / ".tmp";
         }
 
-        public static PathConstruction.AbsolutePath GetCompletionFile(PathConstruction.AbsolutePath rootDirectory)
+        public static AbsolutePath GetCompletionFile(AbsolutePath rootDirectory)
         {
             var completionFileName = CompletionParameterName + ".yml";
             return File.Exists(rootDirectory / completionFileName)
@@ -41,7 +41,7 @@ namespace Nuke.Common
                 : GetTemporaryDirectory(rootDirectory) / completionFileName;
         }
         
-        public static PathConstruction.AbsolutePath GetBuildAttemptFile(PathConstruction.AbsolutePath rootDirectory)
+        public static AbsolutePath GetBuildAttemptFile(AbsolutePath rootDirectory)
         {
             return GetTemporaryDirectory(rootDirectory) / "build-attempt.log";
         }

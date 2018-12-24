@@ -8,6 +8,7 @@ using JetBrains.Annotations;
 using Microsoft.Build.Framework;
 using Nuke.Common.Git;
 using Nuke.Common;
+using Nuke.Common.IO;
 using static Nuke.Common.IO.PathConstruction;
 
 namespace Nuke.CodeGeneration
