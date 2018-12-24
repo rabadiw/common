@@ -13,17 +13,13 @@ using Nuke.Common.Utilities;
 namespace Nuke.Common.OutputSinks
 {
     [ExcludeFromCodeCoverage]
-    public static class FigletTransform
+    public class FigletTransform
     {
         public static string GetText(string text, string integratedFontName = null)
         {
             integratedFontName = integratedFontName ?? "cybermedium";
-
-            var fullResourceName = $"{typeof(IOutputSink).Namespace}.Fonts.{integratedFontName}.flf";
-            var assembly = typeof(FigletTransform).GetTypeInfo().Assembly;
-            var resourceStream = assembly.GetManifestResourceStream(fullResourceName);
-
-            return GetText(text, resourceStream.NotNull("resourceStream != null"));
+            var stream = ResourceUtility.GetResource<FigletTransform>($".Fonts.{integratedFontName}.flf");
+            return GetText(text, stream);
         }
 
         public static string GetText(string text, Stream stream)
