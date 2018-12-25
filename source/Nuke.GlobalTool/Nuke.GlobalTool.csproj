@@ -7,9 +7,6 @@
     <ToolCommandName>nuke</ToolCommandName>
   </PropertyGroup>
 
-  <Import Project="..\Package.props" />
-  <Import Project="..\Configuration.props" />
-
   <ItemGroup>
     <ProjectReference Include="..\Nuke.Common\Nuke.Common.csproj" />
   </ItemGroup>
