@@ -49,8 +49,8 @@ namespace Nuke.GlobalTool
                 rootDirectory = EnvironmentInfo.WorkingDirectory;
             }
             
-            var buildProjectName = ConsoleUtility.PromptForInput("How should the build project be named?", "_build");
-            var buildDirectoryName = ConsoleUtility.PromptForInput("Where should the build project be located?", "./build");
+            var buildProjectName = ConsoleUtility.PromptForValue("How should the build project be named?", "_build");
+            var buildDirectoryName = ConsoleUtility.PromptForValue("Where should the build project be located?", "./build");
 
             var targetPlatform = !ParameterService.Instance.GetParameter<bool>("boot")
                 ? PLATFORM_NETCORE
@@ -243,10 +243,10 @@ namespace Nuke.GlobalTool
             {
                 ControlFlow.Assert(definitions.Contains("SOURCE_DIR"), "definitions.Contains('SOURCE_DIR')");
 
-                var organization = ConsoleUtility.PromptForInput("Organization name:", defaultValue: "nuke-build");
-                var addonName = ConsoleUtility.PromptForInput("Organization name:", defaultValue: null);
-                var authors = ConsoleUtility.PromptForInput("Author names separated by comma:", defaultValue: "Matthias Koch, Sebastian Karasek");
-                var packageName = ConsoleUtility.PromptForInput("Package name on nuget.org:", defaultValue: null);
+                var organization = ConsoleUtility.PromptForValue("Organization name:", defaultValue: "nuke-build");
+                var addonName = ConsoleUtility.PromptForValue("Organization name:", defaultValue: null);
+                var authors = ConsoleUtility.PromptForValue("Author names separated by comma:", defaultValue: "Matthias Koch, Sebastian Karasek");
+                var packageName = ConsoleUtility.PromptForValue("Package name on nuget.org:", defaultValue: null);
 
                 TextTasks.WriteAllText(
                     Path.Combine(rootDirectory, "README.md"),

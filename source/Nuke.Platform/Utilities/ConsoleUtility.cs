@@ -26,12 +26,12 @@ namespace Nuke.Platform.Utilities
         private static bool s_interrupted;
 
         [CanBeNull]
-        public static string PromptForInput(string question, string defaultValue)
+        public static string PromptForValue(string question, string defaultValue)
         {
             if (s_interrupted)
                 return defaultValue;
 
-            Logger.Log(question);
+            Console.WriteLine(question);
 
             ConsoleKeyInfo input;
             var inputBuilder = new StringBuilder();
@@ -76,7 +76,7 @@ namespace Nuke.Platform.Utilities
             var selection = 0;
             ConsoleKey input;
 
-            Logger.Log(question);
+            Console.WriteLine(question);
             do
             {
                 for (var i = 0; i < options.Length; i++)
@@ -108,7 +108,7 @@ namespace Nuke.Platform.Utilities
             return options[selection].Value;
         }
         
-        public static string ReadSecret()
+        public static string PromptForSecret()
         {
             var secret = string.Empty;
 
@@ -139,6 +139,18 @@ namespace Nuke.Platform.Utilities
             } while (true);
 
             return secret;
+        }
+
+        public static bool PromptForConfirmation(string question)
+        {
+            ConsoleKey response;
+            do
+            {
+                Console.WriteLine($"{question} [y/n]");
+                response = Console.ReadKey(intercept: true).Key;
+            } while (response != ConsoleKey.Y && response != ConsoleKey.N);
+
+            return response == ConsoleKey.Y;
         }
     }
 }

@@ -11,6 +11,7 @@ using JetBrains.Annotations;
 using Nuke.Platform;
 using Nuke.Platform.Extensions;
 using Nuke.Platform.Tooling;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.GlobalTool
 {
@@ -59,7 +60,7 @@ namespace Nuke.GlobalTool
 
             if (buildScript == null)
             {
-                if (UserConfirms($"Could not find {Constants.ConfigurationFileName} file. Do you want to setup a build?"))
+                if (ConsoleUtility.PromptForConfirmation($"Could not find {Constants.ConfigurationFileName} file. Do you want to setup a build?"))
                     return Setup(new string[0], rootDirectory, buildScript: null);
                 return 0;
             }
@@ -86,18 +87,6 @@ namespace Nuke.GlobalTool
                         ? $"-ExecutionPolicy ByPass -NoProfile -File {buildScript} {arguments}"
                         : $"{buildScript} {arguments}"
                 }).NotNull();
-        }
-
-        private static bool UserConfirms(string question)
-        {
-            ConsoleKey response;
-            do
-            {
-                Logger.Log($"{question} [y/n]");
-                response = Console.ReadKey(intercept: true).Key;
-            } while (response != ConsoleKey.Y && response != ConsoleKey.N);
-
-            return response == ConsoleKey.Y;
         }
     }
 }
