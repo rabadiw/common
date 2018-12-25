@@ -9,10 +9,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Nuke.Platform;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.Common.Execution
 {
-    internal static class GraphService
+    internal class GraphService
     {
         public static void ShowGraph<T>(T build)
             where T : NukeBuild
@@ -25,10 +26,6 @@ namespace Nuke.Common.Execution
                 }
             }
 
-            var assembly = typeof(BuildExecutor).GetTypeInfo().Assembly;
-            var resourceName = typeof(BuildExecutor).Namespace + ".graph.html";
-            var resourceStream = assembly.GetManifestResourceStream(resourceName).NotNull("resourceStream != null");
-
             var graph = new StringBuilder();
             foreach (var target in build.TargetDefinitions)
             {
@@ -39,8 +36,9 @@ namespace Nuke.Common.Execution
                     dependentBy.ForEach(x => graph.AppendLine($"{target.GetDeclaration()} --> {x.GetDeclaration()}"));
             }
 
-            var path = Path.Combine(NukeBuild.TemporaryDirectory, "graph.html");
+            var resourceStream = ResourceUtility.GetResource<GraphService>("graph.html");
             var contents = GetStringFromStream(resourceStream).Replace("__GRAPH__", graph.ToString());
+            var path = Path.Combine(NukeBuild.TemporaryDirectory, "graph.html");
             File.WriteAllText(path, contents);
 
             // Workaround for https://github.com/dotnet/corefx/issues/10361
