@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using FluentAssertions;
 using Nuke.Common.Tools.MSBuild;
-using Nuke.Common.IO;
+using Nuke.Platform;
 
 namespace Nuke.Common.Tests
 {

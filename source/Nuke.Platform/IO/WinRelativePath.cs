@@ -5,9 +5,9 @@
 using System;
 using System.Linq;
 using JetBrains.Annotations;
-using static Nuke.Common.IO.PathConstruction;
+using static Nuke.Platform.IO.PathConstruction;
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     [PublicAPI]
     public class WinRelativePath : RelativePath

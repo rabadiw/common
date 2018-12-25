@@ -5,8 +5,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Utilities
 {
     public class TemplateUtility
     {

@@ -3,10 +3,10 @@
 // https://github.com/nuke-build/nuke/blob/master/LICENSE
 
 using System;
+using System.Linq;
 using System.Threading.Tasks;
-using Nuke.Common.BuildTasks;
 
-namespace Nuke.Common.Tests
+namespace Nuke.MSBuildTasks.Tests
 {
     public class ExternalFilesTaskTest
     {

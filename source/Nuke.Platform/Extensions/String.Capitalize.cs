@@ -2,10 +2,12 @@
 // Distributed under the MIT License.
 // https://github.com/nuke-build/nuke/blob/master/LICENSE
 
+using System;
 using System.Globalization;
+using System.Linq;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     public static partial class StringExtensions
     {

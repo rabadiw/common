@@ -9,7 +9,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     [PublicAPI]
     [DebuggerNonUserCode]

@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.Execution;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     [PublicAPI]
     [DebuggerNonUserCode]

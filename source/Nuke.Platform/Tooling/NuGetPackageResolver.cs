@@ -12,11 +12,10 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NuGet.Packaging;
 using NuGet.Versioning;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     [PublicAPI]
     public static class NuGetPackageResolver

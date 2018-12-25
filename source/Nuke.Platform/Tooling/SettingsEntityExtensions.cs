@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     public static class SettingsEntityExtensions
     {

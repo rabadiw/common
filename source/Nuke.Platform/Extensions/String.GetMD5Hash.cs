@@ -7,7 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     public static partial class StringExtensions
     {

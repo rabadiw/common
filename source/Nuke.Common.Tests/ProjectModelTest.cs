@@ -7,8 +7,9 @@ using System.IO;
 using System.Linq;
 using FluentAssertions;
 using Nuke.Common.ProjectModel;
+using Nuke.Platform;
+using Nuke.Platform.IO;
 using Xunit;
-using static Nuke.Common.IO.PathConstruction;
 
 namespace Nuke.Common.Tests
 {

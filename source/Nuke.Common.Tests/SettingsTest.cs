@@ -9,8 +9,9 @@ using FluentAssertions;
 using Nuke.Common.Tools.MSBuild;
 using Nuke.Common.Tools.OpenCover;
 using Nuke.Common.Tools.Xunit;
-using Nuke.Common.IO;
-using Nuke.Common.Tooling;
+using Nuke.Platform;
+using Nuke.Platform.IO;
+using Nuke.Platform.Tooling;
 using Xunit;
 
 namespace Nuke.Common.Tests

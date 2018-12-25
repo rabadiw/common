@@ -6,11 +6,10 @@ using System;
 using System.Linq;
 using JetBrains.Annotations;
 using Microsoft.Build.Framework;
-using Nuke.Common;
-using Nuke.Common.IO;
-using static Nuke.Common.IO.PathConstruction;
+using Nuke.CodeGeneration;
+using Nuke.Platform.IO;
 
-namespace Nuke.CodeGeneration
+namespace Nuke.MSBuildTasks
 {
     [PublicAPI]
     public class CodeGeneratorTask : ITask

@@ -4,7 +4,8 @@
 
 using System;
 using System.Linq;
-using Nuke.Common.Tooling;
+using Nuke.Platform;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.MSpec
 {

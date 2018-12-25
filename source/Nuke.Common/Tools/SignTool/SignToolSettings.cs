@@ -6,6 +6,7 @@ using System;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
+using Nuke.Platform;
 
 namespace Nuke.Common.Tools.SignTool
 {

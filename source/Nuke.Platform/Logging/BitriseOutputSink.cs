@@ -6,9 +6,9 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common.OutputSinks
+namespace Nuke.Platform.Logging
 {
     [UsedImplicitly]
     [ExcludeFromCodeCoverage]

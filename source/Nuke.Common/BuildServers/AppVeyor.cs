@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using JetBrains.Annotations;
-using static Nuke.Common.EnvironmentInfo;
+using static Nuke.Platform.EnvironmentInfo;
 
 namespace Nuke.Common.BuildServers
 {

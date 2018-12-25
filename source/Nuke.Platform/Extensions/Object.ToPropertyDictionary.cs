@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Nuke.Common.Utilities.Collections
+namespace Nuke.Platform.Extensions
 {
     partial class EnumerableExtensions
     {

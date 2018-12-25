@@ -11,7 +11,8 @@ using System.Threading.Tasks;
 using System.Web;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
-using Nuke.Common.Tooling;
+using Nuke.Platform;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.Slack
 {

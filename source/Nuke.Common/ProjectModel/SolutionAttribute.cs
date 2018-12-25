@@ -7,8 +7,9 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
-using Nuke.Common.Execution;
-using Nuke.Common.IO;
+using Nuke.Platform;
+using Nuke.Platform.IO;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.Common.ProjectModel
 {

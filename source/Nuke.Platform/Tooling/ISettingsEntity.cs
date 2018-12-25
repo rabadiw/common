@@ -5,7 +5,7 @@
 using System;
 using System.Linq;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     /// <summary>
     ///   Marker interface for settings entities.

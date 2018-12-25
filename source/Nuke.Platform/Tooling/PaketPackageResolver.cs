@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     // TODO: Add similar methods to NuGetPackageResolver
     [PublicAPI]

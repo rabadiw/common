@@ -2,9 +2,11 @@
 // Distributed under the MIT License.
 // https://github.com/nuke-build/nuke/blob/master/LICENSE
 
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace Nuke.Common.Utilities.Collections
+namespace Nuke.Platform.Extensions
 {
     public static partial class DictionaryExtensions
     {

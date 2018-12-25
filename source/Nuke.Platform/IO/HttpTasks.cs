@@ -7,9 +7,9 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Tooling;
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     [PublicAPI]
     public static class HttpTasks

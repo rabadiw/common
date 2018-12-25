@@ -5,12 +5,12 @@
 using System;
 using System.Linq;
 using FluentAssertions;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Tooling;
 using Xunit;
 
 // ReSharper disable ArgumentsStyleLiteral
 
-namespace Nuke.Common.Tests
+namespace Nuke.Platform.Tests
 {
     public class LookupTableTest
     {

@@ -8,10 +8,9 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using Nuke.CodeGeneration.Generators;
-using Nuke.CodeGeneration.Model;
-using Nuke.Common;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 
 namespace Nuke.CodeGeneration
 {
@@ -22,9 +21,9 @@ namespace Nuke.CodeGeneration
 
         public static void GenerateCode(
             string specificationDirectory,
-            Func<Tool, string> outputFileProvider = null,
-            Func<Tool, string> namespaceProvider = null,
-            Func<Tool, string> sourceFileProvider = null)
+            Func<Model.Tool, string> outputFileProvider = null,
+            Func<Model.Tool, string> namespaceProvider = null,
+            Func<Model.Tool, string> sourceFileProvider = null)
         {
             GenerateCode(
                 Directory.GetFiles(specificationDirectory, SpecificationFilePattern, SearchOption.TopDirectoryOnly),
@@ -35,9 +34,9 @@ namespace Nuke.CodeGeneration
 
         public static void GenerateCode(
             IReadOnlyCollection<string> specificationFiles,
-            Func<Tool, string> outputFileProvider = null,
-            Func<Tool, string> namespaceProvider = null,
-            Func<Tool, string> sourceFileProvider = null)
+            Func<Model.Tool, string> outputFileProvider = null,
+            Func<Model.Tool, string> namespaceProvider = null,
+            Func<Model.Tool, string> sourceFileProvider = null)
         {
             foreach (var specificationFile in specificationFiles)
             {
@@ -57,7 +56,7 @@ namespace Nuke.CodeGeneration
             }
         }
 
-        public static void GenerateCode(Tool tool, string outputFile)
+        public static void GenerateCode(Model.Tool tool, string outputFile)
         {
             FileSystemTasks.EnsureExistingDirectory(Path.GetDirectoryName(outputFile));
 
@@ -72,10 +71,10 @@ namespace Nuke.CodeGeneration
 
         // ReSharper disable once CyclomaticComplexity
         private static void ApplyRuntimeInformation(
-            Tool tool,
+            Model.Tool tool,
             string specificationFile,
-            [CanBeNull] Func<Tool, string> sourceFileProvider, 
-            [CanBeNull] Func<Tool, string> namespaceProvider)
+            [CanBeNull] Func<Model.Tool, string> sourceFileProvider, 
+            [CanBeNull] Func<Model.Tool, string> namespaceProvider)
         {
             foreach (var task in tool.Tasks)
             {

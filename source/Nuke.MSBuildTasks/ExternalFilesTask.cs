@@ -8,10 +8,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Microsoft.Build.Framework;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.IO;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common.BuildTasks
+namespace Nuke.MSBuildTasks
 {
     [PublicAPI]
     public class ExternalFilesTask : ITask

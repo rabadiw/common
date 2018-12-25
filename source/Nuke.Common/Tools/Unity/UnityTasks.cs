@@ -7,9 +7,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Tooling;
 using Nuke.Common.Tools.Unity.Logging;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.Unity
 {

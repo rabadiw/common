@@ -9,7 +9,7 @@ using System.Text;
 using JetBrains.Annotations;
 using Console = Colorful.Console;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Utilities
 {
     public class ConsoleUtility
     {

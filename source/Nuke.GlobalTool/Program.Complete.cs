@@ -7,10 +7,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common;
-using Nuke.Common.Execution;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.GlobalTool
 {

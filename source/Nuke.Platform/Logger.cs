@@ -7,10 +7,10 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
-using Nuke.Common.OutputSinks;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Logging;
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     [PublicAPI]
     [DebuggerNonUserCode]
@@ -86,7 +86,7 @@ namespace Nuke.Common
         #region Trace
 
         /// <summary>
-        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Nuke.Common.LogLevel.Trace"/>.
+        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Platform.LogLevel.Trace"/>.
         /// </summary>
         [StringFormatMethod("format")]
         public static void Trace(string format, params object[] args)
@@ -95,7 +95,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Nuke.Common.LogLevel.Trace"/>.
+        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Platform.LogLevel.Trace"/>.
         /// </summary>
         public static void Trace(object value)
         {
@@ -103,7 +103,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Nuke.Common.LogLevel.Trace"/>.
+        /// Logs a message as trace if <see cref="LogLevel"/> is equal to <see cref="Platform.LogLevel.Trace"/>.
         /// </summary>
         public static void Trace(string text = null)
         {
@@ -116,7 +116,7 @@ namespace Nuke.Common
         #region Info
 
         /// <summary>
-        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Information"/>.
+        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Information"/>.
         /// </summary>
         [StringFormatMethod("format")]
         public static void Info(string format, params object[] args)
@@ -125,7 +125,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Information"/>.
+        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Information"/>.
         /// </summary>
         public static void Info(object value)
         {
@@ -133,7 +133,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Information"/>.
+        /// Logs a message as information if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Information"/>.
         /// </summary>
         public static void Info(string text = null)
         {
@@ -146,7 +146,7 @@ namespace Nuke.Common
         #region Warn
 
         /// <summary>
-        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Warning"/>.
+        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Warning"/>.
         /// </summary>
         [StringFormatMethod("format")]
         public static void Warn(string format, params object[] args)
@@ -155,7 +155,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Warning"/>.
+        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Warning"/>.
         /// </summary>
         public static void Warn(object value)
         {
@@ -163,7 +163,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Warning"/>.
+        /// Logs a message as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Warning"/>.
         /// </summary>
         public static void Warn(string text = null)
         {
@@ -172,7 +172,7 @@ namespace Nuke.Common
         }
 
         /// <summary>
-        /// Logs an exception as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Nuke.Common.LogLevel.Warning"/>.
+        /// Logs an exception as warning if <see cref="LogLevel"/> is lower or equal to <see cref="Platform.LogLevel.Warning"/>.
         /// </summary>
         public static void Warn(Exception exception)
         {

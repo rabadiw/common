@@ -5,9 +5,10 @@
 using System;
 using System.Linq;
 using System.Reflection;
-using Nuke.Common.Execution;
+using Nuke.Platform.Tooling;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform
 {
     /// <summary>
     ///     Injects a delegate for process execution. The executable name is derived from the member name or can be

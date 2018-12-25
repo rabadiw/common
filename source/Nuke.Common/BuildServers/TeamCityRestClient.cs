@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
+using Nuke.Platform;
 using Refit;
 
 namespace Nuke.Common.BuildServers

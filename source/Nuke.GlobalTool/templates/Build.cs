@@ -7,13 +7,16 @@ using Nuke.Common.Tools.DotNet;                                                 
 using Nuke.Common.Tools.GitVersion;                                                             // GITVERSION
 using Nuke.Common.Tools.MSBuild;                                                                // MSBUILD
 using Nuke.Common.Tools.NuGet;                                                                  // NUGET && MSBUILD
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 using static Nuke.Common.ChangeLog.ChangelogTasks;                                              // CHANGELOG
-using static Nuke.Common.EnvironmentInfo;
-using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;                                              // DOTNET
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;                                            // MSBUILD
 using static Nuke.Common.Tools.NuGet.NuGetTasks;                                                // NUGET && MSBUILD
+using static Nuke.Platform.EnvironmentInfo;
+using static Nuke.Platform.IO.FileSystemTasks;
+using static Nuke.Platform.IO.PathConstruction;
 
 class Build : NukeBuild
 {

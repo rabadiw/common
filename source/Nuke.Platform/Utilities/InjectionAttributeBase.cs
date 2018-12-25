@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Execution
+namespace Nuke.Platform.Utilities
 {
     [PublicAPI]
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]

@@ -9,10 +9,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     [PublicAPI]
     [DebuggerStepThrough]

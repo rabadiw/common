@@ -6,11 +6,11 @@ using System;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Tooling;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     public static partial class SerializationTasks
     {

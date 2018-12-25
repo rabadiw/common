@@ -7,8 +7,9 @@ using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
 using Nuke.Common.BuildServers;
-using Nuke.Common.Execution;
 using Nuke.Common.Tools.Git;
+using Nuke.Platform;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.Common.Git
 {

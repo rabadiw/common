@@ -9,8 +9,8 @@ using System.Linq.Expressions;
 using JetBrains.Annotations;
 using Nuke.Common.BuildServers;
 using Nuke.Common.Execution;
-using Nuke.Common.OutputSinks;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Logging;
+using Nuke.Platform.Tooling;
 
 // ReSharper disable VirtualMemberNeverOverridden.Global
 

@@ -5,11 +5,11 @@
 using System;
 using System.Linq;
 using FluentAssertions;
-using Nuke.Common.IO;
+using Nuke.Platform.IO;
 using Xunit;
-using static Nuke.Common.IO.PathConstruction;
+using static Nuke.Platform.IO.PathConstruction;
 
-namespace Nuke.Common.Tests
+namespace Nuke.Platform.Tests
 {
     public class PathConstructionTest
     {

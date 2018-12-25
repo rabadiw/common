@@ -7,7 +7,7 @@ using System.Linq;
 using JetBrains.Annotations;
 
 // ReSharper disable once CheckNamespace
-namespace System.Diagnostics.CodeAnalysis
+namespace Nuke.Common
 {
     [PublicAPI]
     [AttributeUsage(AttributeTargets.Assembly)]

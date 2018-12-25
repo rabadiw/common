@@ -5,6 +5,7 @@
 using System;
 using System.Linq;
 using Nuke.Common.BuildServers;
+using Nuke.Platform;
 
 namespace Nuke.Common.Tools.MSBuild
 {

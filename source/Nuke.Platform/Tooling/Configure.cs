@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     public delegate T Configure<T>(T settings);
 

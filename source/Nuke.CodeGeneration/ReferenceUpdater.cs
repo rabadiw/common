@@ -11,8 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
 using JetBrains.Annotations;
-using Nuke.CodeGeneration.Model;
-using Nuke.Common;
+using Nuke.Platform;
 
 namespace Nuke.CodeGeneration
 {
@@ -31,7 +30,7 @@ namespace Nuke.CodeGeneration
             System.Threading.Tasks.Task.WaitAll(updateTasks.ToArray());
         }
 
-        private static async System.Threading.Tasks.Task Update(string reference, Tool tool, [CanBeNull] string referencesDirectory)
+        private static async System.Threading.Tasks.Task Update(string reference, Model.Tool tool, [CanBeNull] string referencesDirectory)
         {
             var index = tool.References.IndexOf(reference);
             try

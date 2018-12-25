@@ -6,8 +6,8 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Nuke.CodeGeneration.Model;
-using Nuke.Common;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
 
 namespace Nuke.CodeGeneration.Generators
 {
@@ -91,7 +91,7 @@ namespace Nuke.CodeGeneration.Generators
             return isOptional ? "[CanBeNull] " : string.Empty;
         }
 
-        public static string GetClassName(this Tool tool)
+        public static string GetClassName(this Model.Tool tool)
         {
             return $"{tool.Name}Tasks";
         }

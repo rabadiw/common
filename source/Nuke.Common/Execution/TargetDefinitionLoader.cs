@@ -7,8 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
 
 namespace Nuke.Common.Execution
 {

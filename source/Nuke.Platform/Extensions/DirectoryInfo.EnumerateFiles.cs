@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     public static class DirectoryInfoExtensions
     {

@@ -6,8 +6,9 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Utilities
 {
     public static class ResourceUtility
     {

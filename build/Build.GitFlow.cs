@@ -5,9 +5,10 @@
 using System.IO;
 using System.Linq;
 using Nuke.Common;
-using Nuke.Common.Tooling;
 using Nuke.Common.Tools.GitVersion;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Tooling;
 using static Nuke.Common.ChangeLog.ChangelogTasks;
 using static Nuke.Common.Tools.Git.GitTasks;
 using static Nuke.Common.Tools.GitVersion.GitVersionTasks;

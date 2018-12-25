@@ -6,9 +6,9 @@ using System;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
-using Nuke.Common.Execution;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     /// <summary>
     ///     Injected parameters are resolved case-insensitively in the following order:

@@ -9,9 +9,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     [PublicAPI]
     public static class FileSystemTasks

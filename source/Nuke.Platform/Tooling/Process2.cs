@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     public class Process2 : IProcess
     {

@@ -6,9 +6,9 @@ using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.Execution
+namespace Nuke.Platform.Utilities
 {
     public static class ReflectionService
     {

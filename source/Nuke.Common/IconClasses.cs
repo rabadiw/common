@@ -32,14 +32,15 @@ using Nuke.Common.Tools.WebConfigTransformRunner;
 using Nuke.Common.Tools.Xunit;
 using Nuke.Common;
 using Nuke.Common.Execution;
-using Nuke.Common.IO;
-using Nuke.Common.Tooling;
 using Nuke.Common.Tools.Coverlet;
 using Nuke.Common.Tools.Slack;
 using Nuke.Common.Tools.SpecFlow;
 using Nuke.Common.Tools.Squirrel;
 using Nuke.Common.Tools.Unity;
 using Nuke.Common.Tools.VSWhere;
+using Nuke.Platform;
+using Nuke.Platform.IO;
+using Nuke.Platform.Tooling;
 
 [assembly: IconClass(typeof(ChangelogTasks), "books")]
 [assembly: IconClass(typeof(ControlFlow), "footprint")]

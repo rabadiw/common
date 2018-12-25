@@ -5,13 +5,12 @@
 using Nuke.CodeGeneration.Model;
 using Nuke.Common;
 using Nuke.Common.Git;
-using Nuke.Common.IO;
+using Nuke.Platform.IO;
 using static Nuke.CodeGeneration.CodeGenerator;
 using static Nuke.CodeGeneration.ReferenceUpdater;
 using static Nuke.CodeGeneration.SchemaGenerator;
-using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.Git.GitTasks;
+using static Nuke.Platform.IO.FileSystemTasks;
 
 partial class Build
 {

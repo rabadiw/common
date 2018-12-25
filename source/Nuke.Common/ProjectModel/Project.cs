@@ -6,7 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.IO;
+using Nuke.Platform;
+using Nuke.Platform.IO;
 
 namespace Nuke.Common.ProjectModel
 {

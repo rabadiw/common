@@ -4,6 +4,7 @@
 
 using System;
 using System.Linq;
+using Nuke.Platform;
 
 namespace Nuke.Common.Tools.DotNet
 {

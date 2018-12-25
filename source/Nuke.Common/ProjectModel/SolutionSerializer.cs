@@ -9,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using JetBrains.Annotations;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 
 namespace Nuke.Common.ProjectModel
 {

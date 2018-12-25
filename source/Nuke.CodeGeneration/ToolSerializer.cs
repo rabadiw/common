@@ -11,19 +11,19 @@ using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Nuke.CodeGeneration.Model;
-using Nuke.Common;
-using Nuke.Common.Utilities;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
 
 namespace Nuke.CodeGeneration
 {
     public static class ToolSerializer
     {
-        public static Tool Load(string file)
+        public static Model.Tool Load(string file)
         {
             try
             {
                 var content = File.ReadAllText(file);
-                return JsonConvert.DeserializeObject<Tool>(content);
+                return JsonConvert.DeserializeObject<Model.Tool>(content);
             }
             catch (Exception exception)
             {
@@ -33,7 +33,7 @@ namespace Nuke.CodeGeneration
             }
         }
 
-        public static void Save(Tool tool, string file)
+        public static void Save(Model.Tool tool, string file)
         {
             var content = JsonConvert.SerializeObject(
                 tool,

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace Nuke.Common.Execution
+namespace Nuke.Platform.Utilities
 {
     public static class InjectionUtility
     {

@@ -9,9 +9,9 @@ using System.Reflection;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using Nuke.Common.Tooling;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.GitVersion
 {

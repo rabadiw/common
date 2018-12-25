@@ -6,7 +6,7 @@ using System;
 using System.ComponentModel;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common
 {

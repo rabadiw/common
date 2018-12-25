@@ -7,9 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     public interface IArguments
     {

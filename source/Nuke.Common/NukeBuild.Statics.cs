@@ -9,10 +9,11 @@ using System.Reflection;
 using JetBrains.Annotations;
 using Nuke.Common.BuildServers;
 using Nuke.Common.Execution;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
-using static Nuke.Common.Constants;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
+using Nuke.Platform.Utilities;
+using static Nuke.Platform.Constants;
 
 namespace Nuke.Common
 {

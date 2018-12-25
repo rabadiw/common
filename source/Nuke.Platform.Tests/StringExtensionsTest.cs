@@ -5,10 +5,10 @@
 using System;
 using System.Linq;
 using FluentAssertions;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
 using Xunit;
 
-namespace Nuke.Common.Tests
+namespace Nuke.Platform.Tests
 {
     public class StringExtensionsTest
     {

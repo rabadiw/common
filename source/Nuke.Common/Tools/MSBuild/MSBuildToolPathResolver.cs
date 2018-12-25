@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Nuke.Platform;
 
 #if LOCATOR
 using Nuke.MSBuildLocator;

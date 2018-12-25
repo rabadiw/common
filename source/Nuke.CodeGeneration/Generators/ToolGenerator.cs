@@ -9,8 +9,7 @@ using System.Linq;
 using System.Reflection;
 using Nuke.CodeGeneration.Model;
 using Nuke.CodeGeneration.Writers;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.Extensions;
 
 // ReSharper disable UnusedMethodReturnValue.Local
 
@@ -76,9 +75,9 @@ namespace Nuke.CodeGeneration.Generators
                        "Newtonsoft.Json",
                        "Nuke.Common",
                        "Nuke.Common.Execution",
-                       "Nuke.Common.Tooling",
-                       "Nuke.Common.Tools",
-                       "Nuke.Common.Utilities.Collections",
+                       "Nuke.Platform",
+                       "Nuke.Platform.Tooling",
+                       "Nuke.Platform.Extensions",
                        "System",
                        "System.Collections.Generic",
                        "System.Collections.ObjectModel",

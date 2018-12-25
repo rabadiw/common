@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Utilities
 {
     public class DelegateDisposable : IDisposable
     {

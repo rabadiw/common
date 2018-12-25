@@ -8,24 +8,24 @@ using System.Linq;
 using System.Text;
 using Nuke.Common;
 using Nuke.Common.Git;
-using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.InspectCode;
 using Nuke.Common.Tools.Slack;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 using static Nuke.Common.ChangeLog.ChangelogTasks;
-using static Nuke.Common.ControlFlow;
 using static Nuke.Common.Gitter.GitterTasks;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 using static Nuke.Common.Tools.Git.GitTasks;
 using static Nuke.Common.Tools.InspectCode.InspectCodeTasks;
-using static Nuke.Common.IO.FileSystemTasks;
-using static Nuke.Common.IO.PathConstruction;
-using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.Tools.Slack.SlackTasks;
+using static Nuke.Platform.ControlFlow;
+using static Nuke.Platform.EnvironmentInfo;
+using static Nuke.Platform.IO.FileSystemTasks;
+using static Nuke.Platform.IO.PathConstruction;
 
 // ReSharper disable HeapView.DelegateAllocation
 

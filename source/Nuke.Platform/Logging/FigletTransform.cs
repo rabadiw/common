@@ -6,11 +6,11 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using Colorful;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common.OutputSinks
+namespace Nuke.Platform.Logging
 {
     [ExcludeFromCodeCoverage]
     public class FigletTransform
@@ -18,7 +18,7 @@ namespace Nuke.Common.OutputSinks
         public static string GetText(string text, string integratedFontName = null)
         {
             integratedFontName = integratedFontName ?? "cybermedium";
-            var stream = ResourceUtility.GetResource<FigletTransform>($".Fonts.{integratedFontName}.flf");
+            var stream = ResourceUtility.GetResource<FigletTransform>($"Fonts.{integratedFontName}.flf");
             return GetText(text, stream);
         }
 

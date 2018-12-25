@@ -6,9 +6,9 @@ using System;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
-using Nuke.Common.IO;
+using Nuke.Platform.IO;
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     public class Constants
     {

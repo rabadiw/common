@@ -10,13 +10,12 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
-using System.Threading.Tasks;
-using Nuke.Common.IO;
-using Nuke.Common.OutputSinks;
-using Nuke.Common.ProjectModel;
-using Nuke.Common.Tooling;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
+using Nuke.Platform.Logging;
+using Nuke.Platform.Tooling;
+using Nuke.Platform.Utilities;
 
 namespace Nuke.Common.Execution
 {

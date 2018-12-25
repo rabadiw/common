@@ -9,11 +9,11 @@ using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using JetBrains.Annotations;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
+using Nuke.Platform.IO;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.Utilities;
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     public static partial class EnvironmentInfo
     {

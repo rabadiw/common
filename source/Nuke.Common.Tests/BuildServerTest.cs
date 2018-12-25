@@ -10,6 +10,7 @@ using System.Reflection;
 using FluentAssertions;
 using JetBrains.Annotations;
 using Nuke.Common.BuildServers;
+using Nuke.Platform;
 using Xunit;
 
 namespace Nuke.Common.Tests

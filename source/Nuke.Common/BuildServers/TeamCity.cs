@@ -11,10 +11,9 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
-using Nuke.Common.Utilities.Collections;
 using Refit;
-using static Nuke.Common.EnvironmentInfo;
+using Nuke.Platform.Extensions;
+using static Nuke.Platform.EnvironmentInfo;
 
 namespace Nuke.Common.BuildServers
 {

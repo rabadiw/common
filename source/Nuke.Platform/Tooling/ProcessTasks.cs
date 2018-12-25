@@ -8,7 +8,7 @@ using System.Diagnostics;
 using System.Linq;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     [PublicAPI]
     public static class ProcessTasks

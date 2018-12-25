@@ -14,9 +14,9 @@ using System.Xml.XPath;
 using JetBrains.Annotations;
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
-using Nuke.Common.IO;
+using Nuke.Platform.IO;
 
-namespace Nuke.Common.BuildTasks
+namespace Nuke.MSBuildTasks
 {
     [PublicAPI]
     public class PackPackageToolsTask : ITask

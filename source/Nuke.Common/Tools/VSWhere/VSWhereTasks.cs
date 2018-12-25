@@ -5,9 +5,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nuke.Common.IO;
-using Nuke.Common.Tooling;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.VSWhere
 {

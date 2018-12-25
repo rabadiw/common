@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     [PublicAPI]
     [DebuggerNonUserCode]

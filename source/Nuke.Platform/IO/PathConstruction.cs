@@ -8,11 +8,11 @@ using System.IO;
 using System.Linq;
 using GlobExpressions;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
 
 // ReSharper disable ArrangeMethodOrOperatorBody
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     /// <summary>
     /// <p>Provides an abstraction for generating Windows/Unix/UNC-compliant

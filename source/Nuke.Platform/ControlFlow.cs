@@ -8,11 +8,11 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
 
 // ReSharper disable CompareNonConstrainedGenericWithNull
 
-namespace Nuke.Common
+namespace Nuke.Platform
 {
     [PublicAPI]
     [DebuggerNonUserCode]

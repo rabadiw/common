@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     internal class ToolExecutor
     {

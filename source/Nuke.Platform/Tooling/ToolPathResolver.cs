@@ -7,10 +7,10 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
-using Nuke.Common.IO;
-using Nuke.Common.Utilities;
+using Nuke.Platform.Extensions;
+using Nuke.Platform.IO;
 
-namespace Nuke.Common.Tooling
+namespace Nuke.Platform.Tooling
 {
     [PublicAPI]
     public static class ToolPathResolver

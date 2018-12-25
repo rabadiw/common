@@ -6,7 +6,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace Nuke.Common.Utilities
+namespace Nuke.Platform.Extensions
 {
     public static class AssemblyExtensions
     {

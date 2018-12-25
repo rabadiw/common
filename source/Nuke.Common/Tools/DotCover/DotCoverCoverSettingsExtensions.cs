@@ -4,7 +4,7 @@
 
 using System;
 using System.Linq;
-using Nuke.Common.Tooling;
+using Nuke.Platform.Tooling;
 
 namespace Nuke.Common.Tools.DotCover
 {

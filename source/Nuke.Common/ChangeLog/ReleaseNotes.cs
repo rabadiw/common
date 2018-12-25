@@ -5,7 +5,8 @@ using System;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using NuGet.Versioning;
-    
+using Nuke.Platform;
+
 namespace Nuke.Common.ChangeLog
 {
     [PublicAPI]

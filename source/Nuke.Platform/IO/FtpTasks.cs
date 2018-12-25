@@ -8,7 +8,7 @@ using System.Linq;
 using System.Net;
 using JetBrains.Annotations;
 
-namespace Nuke.Common.IO
+namespace Nuke.Platform.IO
 {
     [PublicAPI]
     public static class FtpTasks
