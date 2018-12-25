@@ -23,8 +23,6 @@ namespace Nuke.GlobalTool
         // ReSharper disable InconsistentNaming
         public const string PLATFORM_NETCORE = "netcore";
         public const string PLATFORM_NETFX = "netfx";
-        public const string FORMAT_SDK = "sdk";
-        public const string FORMAT_LEGACY = "legacy";
         // ReSharper restore InconsistentNaming
 
         [UsedImplicitly]
@@ -60,12 +58,6 @@ namespace Nuke.GlobalTool
                     (PLATFORM_NETCORE, ".NET Core SDK"),
                     (PLATFORM_NETFX, ".NET Framework/Mono"));
 
-            var projectFormat = targetPlatform == PLATFORM_NETCORE
-                ? FORMAT_SDK
-                : ConsoleUtility.PromptForChoice("What project format should be used?",
-                    (FORMAT_SDK, "SDK-based Format: requires .NET Core SDK"),
-                    (FORMAT_LEGACY, "Legacy Format: supported by all MSBuild/Mono versions"));
-
             var nukeVersion = ConsoleUtility.PromptForChoice("Which NUKE version should be used?",
                 new[]
                     {
@@ -95,7 +87,6 @@ namespace Nuke.GlobalTool
             var definitions = new List<string>();
 
             if (solutionFile != null &&
-                projectFormat == FORMAT_SDK &&
                 ConsoleUtility.PromptForChoice(
                     "Do you need help getting started with a basic build?",
                     (true, "Yes, get me started!"),
@@ -154,11 +145,7 @@ namespace Nuke.GlobalTool
             var buildDirectory = Path.Combine(rootDirectory, buildDirectoryName);
             var buildProjectFile = Path.Combine(rootDirectory, buildDirectoryName, buildProjectName + ".csproj");
             var buildProjectGuid = Guid.NewGuid().ToString().ToUpper();
-            var buildProjectKind = new Dictionary<string, string>
-                                   {
-                                       [FORMAT_LEGACY] = "FAE04EC0-301F-11D3-BF4B-00C04F79EFBC",
-                                       [FORMAT_SDK] = "9A19103F-16F7-4668-BE54-9A1E7A4F7556"
-                                   }[projectFormat];
+            var buildProjectKind = "9A19103F-16F7-4668-BE54-9A1E7A4F7556";
 
             if (solutionFile == null)
             {
@@ -181,7 +168,7 @@ namespace Nuke.GlobalTool
             TextTasks.WriteAllText(
                 buildProjectFile,
                 TemplateUtility.FillTemplate(
-                    GetTemplate($"_build.{projectFormat}.csproj"),
+                    GetTemplate($"_build.csproj"),
                     definitions,
                     replacements: GetDictionary(
                         new
@@ -194,15 +181,6 @@ namespace Nuke.GlobalTool
                             nukeVersion,
                             nukeVersionMajorMinor = nukeVersion.Split(".").Take(2).Join(".")
                         })));
-
-            if (projectFormat == FORMAT_LEGACY)
-            {
-                TextTasks.WriteAllText(
-                    Path.Combine(buildDirectory, "packages.config"),
-                    TemplateUtility.FillTemplate(
-                        GetTemplate("_build.legacy.packages.config"),
-                        replacements: GetDictionary(new { nukeVersion })));
-            }
 
             TextTasks.WriteAllText(
                 $"{buildProjectFile}.DotSettings",
