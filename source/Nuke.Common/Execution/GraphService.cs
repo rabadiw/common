@@ -18,26 +18,18 @@ namespace Nuke.Common.Execution
         public static void ShowGraph<T>(T build)
             where T : NukeBuild
         {
-            string GetStringFromStream(Stream stream)
-            {
-                using (var reader = new StreamReader(stream, Encoding.UTF8))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-
             var graph = new StringBuilder();
             foreach (var target in build.TargetDefinitions)
             {
                 var dependentBy = build.TargetDefinitions.Where(x => x.TargetDefinitionDependencies.Contains(target)).ToList();
                 if (dependentBy.Count == 0)
-                    graph.AppendLine(target.GetDeclaration());
+                    graph.AppendLine(GetDeclaration(target));
                 else
-                    dependentBy.ForEach(x => graph.AppendLine($"{target.GetDeclaration()} --> {x.GetDeclaration()}"));
+                    dependentBy.ForEach(x => graph.AppendLine($"{GetDeclaration(target)} --> {GetDeclaration(x)}"));
             }
 
-            var resourceStream = ResourceUtility.GetResource<GraphService>("graph.html");
-            var contents = GetStringFromStream(resourceStream).Replace("__GRAPH__", graph.ToString());
+            var resourceText = ResourceUtility.GetResourceText<GraphService>("graph.html");
+            var contents = resourceText.Replace("__GRAPH__", graph.ToString());
             var path = Path.Combine(NukeBuild.TemporaryDirectory, "graph.html");
             File.WriteAllText(path, contents);
 
@@ -49,7 +41,7 @@ namespace Nuke.Common.Execution
                           });
         }
 
-        private static string GetDeclaration(this TargetDefinition targetDefinition)
+        private static string GetDeclaration(TargetDefinition targetDefinition)
         {
             return targetDefinition.IsDefault
                 ? $"defaultTarget[{targetDefinition.Name}]"

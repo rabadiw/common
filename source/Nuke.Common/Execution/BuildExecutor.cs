@@ -10,6 +10,8 @@ using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
+using System.Threading.Tasks;
+using Nuke.Common.ProjectModel;
 using Nuke.Platform;
 using Nuke.Platform.Extensions;
 using Nuke.Platform.IO;
