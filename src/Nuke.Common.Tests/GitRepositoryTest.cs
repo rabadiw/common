@@ -62,11 +62,11 @@ namespace Nuke.Common.Tests
             repository.GetGitHubDownloadUrl(rootDirectory / "LICENSE").Should().Be($"{rawUrl}/LICENSE");
 
             repository.GetGitHubBrowseUrl("LICENSE").Should().Be($"{blobUrl}/LICENSE");
-            repository.GetGitHubBrowseUrl("source").Should().Be($"{treeUrl}/source");
+            repository.GetGitHubBrowseUrl("src").Should().Be($"{treeUrl}/src");
 
             repository.GetGitHubBrowseUrl(rootDirectory / "LICENSE").Should().Be($"{blobUrl}/LICENSE");
-            repository.GetGitHubBrowseUrl(rootDirectory / "source").Should().Be($"{treeUrl}/source");
-            repository.GetGitHubBrowseUrl(rootDirectory / "source" / "Directory.Build.props").Should().Be($"{blobUrl}/source/Directory.Build.props");
+            repository.GetGitHubBrowseUrl(rootDirectory / "src").Should().Be($"{treeUrl}/src");
+            repository.GetGitHubBrowseUrl(rootDirectory / "src" / "Directory.Build.props").Should().Be($"{blobUrl}/src/Directory.Build.props");
 
             repository.GetGitHubBrowseUrl("directory", itemType: GitHubItemType.Directory).Should().Be($"{treeUrl}/directory");
             repository.GetGitHubBrowseUrl("dir/file", itemType: GitHubItemType.File).Should().Be($"{blobUrl}/dir/file");
@@ -78,7 +78,7 @@ namespace Nuke.Common.Tests
             var repository = GitRepository.FromUrl("https://github.com/nuke-build/nuke", "dev");
 
             repository.GetGitHubBrowseUrl("LICENSE", itemType: GitHubItemType.File).Should().Be($"{repository}/blob/dev/LICENSE");
-            repository.GetGitHubBrowseUrl("source", itemType: GitHubItemType.Directory).Should().Be($"{repository}/tree/dev/source");
+            repository.GetGitHubBrowseUrl("src", itemType: GitHubItemType.Directory).Should().Be($"{repository}/tree/dev/src");
         }
     }
 }

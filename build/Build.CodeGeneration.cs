@@ -16,7 +16,7 @@ partial class Build
 {
     string SpecificationsDirectory => BuildProjectDirectory / "specifications";
     string ReferencesDirectory => BuildProjectDirectory / "references";
-    AbsolutePath GenerationDirectory => RootDirectory / "source" / "Nuke.Common" / "Tools";
+    AbsolutePath GenerationDirectory => SourceDirectory / "Nuke.Common" / "Tools";
     string ToolSchemaFile => SourceDirectory / "Nuke.CodeGeneration" / "schema.json";
 
     Target References => _ => _

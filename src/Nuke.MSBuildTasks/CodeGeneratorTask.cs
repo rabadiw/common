@@ -14,8 +14,6 @@ namespace Nuke.MSBuildTasks
     [PublicAPI]
     public class CodeGeneratorTask : ITask
     {
-        private const string c_exampleUrl = "https://raw.githubusercontent.com/nuke-build/nuke/master/source/Nuke.CodeGeneration/RandomTool.json";
-
         public IBuildEngine BuildEngine { get; set; }
         public ITaskHost HostObject { get; set; }
 

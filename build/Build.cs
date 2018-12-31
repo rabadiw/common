@@ -48,7 +48,7 @@ partial class Build : NukeBuild
     [GitVersion] readonly GitVersion GitVersion;
 
     AbsolutePath OutputDirectory => RootDirectory / "output";
-    AbsolutePath SourceDirectory => RootDirectory / "source";
+    AbsolutePath SourceDirectory => RootDirectory / "src";
 
     readonly string MasterBranch = "master";
     readonly string DevelopBranch = "develop";

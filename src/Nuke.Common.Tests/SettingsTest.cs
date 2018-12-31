@@ -29,7 +29,7 @@ namespace Nuke.Common.Tests
         [Fact]
         public void TestMSBuild()
         {
-            var projectFile = RootDirectory / "source" / "Nuke.Common" / "Nuke.Common.csproj";
+            var projectFile = RootDirectory / "src" / "Nuke.Common" / "Nuke.Common.csproj";
             var solutionFile = RootDirectory / "nuke-common.sln";
 
             Assert<MSBuildSettings>(x => x
@@ -72,7 +72,7 @@ namespace Nuke.Common.Tests
         [Fact]
         public void TestOpenCover()
         {
-            var projectFile = RootDirectory / "source" / "Nuke.Common" / "Nuke.Common.csproj";
+            var projectFile = RootDirectory / "src" / "Nuke.Common" / "Nuke.Common.csproj";
 
             Assert<OpenCoverSettings>(x => x
                     .SetTargetPath(projectFile)
