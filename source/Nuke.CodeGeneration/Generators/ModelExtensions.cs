@@ -91,7 +91,7 @@ namespace Nuke.CodeGeneration.Generators
             return isOptional ? "[CanBeNull] " : string.Empty;
         }
 
-        public static string GetClassName(this Model.Tool tool)
+        public static string GetClassName(this Tool tool)
         {
             return $"{tool.Name}Tasks";
         }

@@ -18,12 +18,12 @@ namespace Nuke.CodeGeneration
 {
     public static class ToolSerializer
     {
-        public static Model.Tool Load(string file)
+        public static Tool Load(string file)
         {
             try
             {
                 var content = File.ReadAllText(file);
-                return JsonConvert.DeserializeObject<Model.Tool>(content);
+                return JsonConvert.DeserializeObject<Tool>(content);
             }
             catch (Exception exception)
             {
@@ -33,7 +33,7 @@ namespace Nuke.CodeGeneration
             }
         }
 
-        public static void Save(Model.Tool tool, string file)
+        public static void Save(Tool tool, string file)
         {
             var content = JsonConvert.SerializeObject(
                 tool,

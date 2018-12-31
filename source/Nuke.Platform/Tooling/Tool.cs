@@ -5,9 +5,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nuke.Platform.Tooling;
 
-namespace Nuke.Platform
+namespace Nuke.Platform.Tooling
 {
     public delegate IReadOnlyCollection<Output> Tool(
         string arguments = null,

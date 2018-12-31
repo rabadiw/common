@@ -27,10 +27,10 @@ namespace Nuke.CodeGeneration
         {
             var tools = specificationFiles.Select(ToolSerializer.Load);
             var updateTasks = tools.SelectMany(x => x.References.Select(y => Update(y, x, referencesDirectory)));
-            System.Threading.Tasks.Task.WaitAll(updateTasks.ToArray());
+            Task.WaitAll(updateTasks.ToArray());
         }
 
-        private static async System.Threading.Tasks.Task Update(string reference, Model.Tool tool, [CanBeNull] string referencesDirectory)
+        private static async Task Update(string reference, Model.Tool tool, [CanBeNull] string referencesDirectory)
         {
             var index = tool.References.IndexOf(reference);
             try

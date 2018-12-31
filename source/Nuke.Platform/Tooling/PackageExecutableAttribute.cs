@@ -6,10 +6,9 @@ using System;
 using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
-using Nuke.Platform.Tooling;
 using Nuke.Platform.Utilities;
 
-namespace Nuke.Platform
+namespace Nuke.Platform.Tooling
 {
     /// <summary>
     ///     Injects a delegate for process execution. The path to the executable is resolved in the following order:
