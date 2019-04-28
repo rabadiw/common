@@ -161,7 +161,7 @@ namespace Nuke.Common.Execution
 
         private static string GetInvocationHash()
         {
-            var continueParameterName = ParameterService.Instance.GetParameterName(() => NukeBuild.Continue);
+            var continueParameterName = ParameterService.Instance.GetParameterMemberName(() => NukeBuild.Continue);
             var invocation = EnvironmentInfo.CommandLineArguments
                 .Where(x => !x.StartsWith("-") || x.TrimStart("-").EqualsOrdinalIgnoreCase(continueParameterName))
                 .JoinSpace();

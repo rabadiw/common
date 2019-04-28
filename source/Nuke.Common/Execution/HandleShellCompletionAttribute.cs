@@ -28,7 +28,7 @@ namespace Nuke.Common.Execution
 
             foreach (var parameter in parameters)
             {
-                var parameterName = ParameterService.Instance.GetParameterName(parameter);
+                var parameterName = ParameterService.Instance.GetParameterMemberName(parameter);
                 if (completionItems.ContainsKey(parameterName))
                     continue;
 

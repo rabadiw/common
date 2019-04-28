@@ -50,7 +50,7 @@ namespace Nuke.Common.Execution
         {
             var memberType = member.GetMemberType();
             var nameOrDescription = ParameterService.Instance.GetParameterDescription(member) ??
-                                    ParameterService.Instance.GetParameterName(member);
+                                    ParameterService.Instance.GetParameterMemberName(member);
             var text = $"{nameOrDescription.TrimEnd('.')}:";
 
             while (member.GetValue(build) == null)

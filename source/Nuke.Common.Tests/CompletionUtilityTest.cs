@@ -19,6 +19,7 @@ namespace Nuke.Common.Tests
         [InlineData("-t", new[] { "-target" })]
         [InlineData("-Api", new[] { "-ApiKey" })]
         [InlineData("--api", new[] { "--api-key" })]
+        [InlineData("--Nu", new[] { "--Nuget-source" })]
         [InlineData("-ApiKey ", new[] { "--target", "--nuget-source" })]
         [InlineData("--api-key ", new[] { "--target", "--nuget-source" })]
         [InlineData("--target ", new[] { "Compile", "Pack", "--api-key", "--nuget-source" })]
@@ -28,6 +29,22 @@ namespace Nuke.Common.Tests
         [InlineData("P", new[] { "Pack" })]
         [InlineData("Pack ", new[] { "Compile", "--target", "--api-key", "--nuget-source" })]
         [InlineData("Pack comp", new[] { "compile" })]
+
+        // [Theory]
+        // [InlineData("", new[] { "compile", "github-publish", "--target", "--api-key", "--nuget-source" })]
+        // [InlineData("-", new[] { "--target", "--api-key", "--nuget-source" })]
+        // [InlineData("-t", new[] { "-target" })]
+        // [InlineData("-Api", new[] { "-ApiKey" })]
+        // [InlineData("--api", new[] { "--api-key" })]
+        // [InlineData("-ApiKey ", new[] { "--target", "--nuget-source" })]
+        // [InlineData("--api-key ", new[] { "--target", "--nuget-source" })]
+        // [InlineData("--target ", new[] { "compile", "github-publish", "--api-key", "--nuget-source" })]
+        // [InlineData("--target G", new[] { "Github-publish" })]
+        // [InlineData("--target -", new[] { "--api-key", "--nuget-source" })]
+        // [InlineData("--target compile ", new[] { "github-publish", "--api-key", "--nuget-source" })]
+        // [InlineData("C", new[] { "Compile" })]
+        // [InlineData("Compile ", new[] { "github-publish", "--target", "--api-key", "--nuget-source" })]
+        // [InlineData("Compile git", new[] { "github-publish" })]
         public void TestGetRelevantCompletionItems(string words, string[] expectedItems)
         {
             var completionItems =
