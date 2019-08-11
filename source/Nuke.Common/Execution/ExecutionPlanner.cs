@@ -22,8 +22,10 @@ namespace Nuke.Common.Execution
             IReadOnlyCollection<ExecutableTarget> executableTargets,
             [CanBeNull] IReadOnlyCollection<string> invokedTargetNames)
         {
-            var invokedTargets = invokedTargetNames?.Select(x => GetExecutableTarget(x, executableTargets)).ToArray() ??
-                                 GetDefaultTarget(executableTargets);
+            var invokedTargets = invokedTargetNames?
+                                     .Select(x => x.Replace("-", string.Empty))
+                                     .Select(x => GetExecutableTarget(x, executableTargets)).ToArray()
+                                 ?? GetDefaultTarget(executableTargets);
             invokedTargets.ForEach(x => x.Invoked = true);
 
             // Repeat to create the plan with triggers taken into account until plan doesn't change

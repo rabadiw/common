@@ -30,15 +30,18 @@ namespace Nuke.Common.Utilities
         }
 
         [Pure]
-        public static IEnumerable<string> SplitCamelHumps(this string str)
+        public static IEnumerable<string> SplitCamelHumps(this string str, params string[] exclusions)
         {
             var hadLower = false;
+            var previous = string.Empty;
             return str.Split(c =>
                 {
                     var shouldSplit = hadLower && char.IsUpper(c);
                     hadLower = char.IsLower(c) && !shouldSplit;
+                    previous += c;
 
-                    return shouldSplit;
+                    var split = shouldSplit && exclusions.All(x => !previous.EndsWithOrdinalIgnoreCase(x));
+                    return split;
                 },
                 includeSplitCharacter: true);
         }

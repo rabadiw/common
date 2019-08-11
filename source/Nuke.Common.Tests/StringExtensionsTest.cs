@@ -47,6 +47,9 @@ namespace Nuke.Common.Tests
 
             "MSBuildConfiguration".SplitCamelHumps()
                 .Should().Equal("MSBuild", "Configuration");
+
+            "NuGetKey".SplitCamelHumps(exclusions: "NuGet")
+                .Should().Equal("NuGet", "Key");
         }
     }
 }
