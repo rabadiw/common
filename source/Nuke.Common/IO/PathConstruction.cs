@@ -113,23 +113,53 @@ namespace Nuke.Common.IO
         [Pure]
         public static IReadOnlyCollection<string> GlobFiles(string directory, params string[] patterns)
         {
-            var directoryInfo = new DirectoryInfo(directory);
-            return patterns.SelectMany(x => Glob.Files(directoryInfo, x, GlobOptions)).Select(x => x.FullName).ToList();
+            return GlobFilesAllowEmpty(directory, patterns)
+                .NotEmpty(new[] { $"Could not find any files in '{directory}' matching the patterns:" }
+                    .Concat(patterns.Select(x => $"- {x}")).JoinNewLine());
         }
 
+        [Pure]
         public static IReadOnlyCollection<AbsolutePath> GlobFiles(this AbsolutePath directory, params string[] patterns)
         {
-            return GlobFiles((string) directory, patterns).Select(x => (AbsolutePath) x).ToList();
+            return GlobFilesAllowEmpty((string) directory, patterns).Select(x => (AbsolutePath) x).ToList();
         }
 
         [Pure]
         public static IReadOnlyCollection<string> GlobDirectories(string directory, params string[] patterns)
         {
+            return GlobDirectoriesAllowEmpty(directory, patterns)
+                .NotEmpty(new[] { $"Could not find any directories in '{directory}' matching the patterns:" }
+                    .Concat(patterns.Select(x => $"- {x}")).JoinNewLine());
+        }
+
+        [Pure]
+        public static IReadOnlyCollection<AbsolutePath> GlobDirectories(this AbsolutePath directory, params string[] patterns)
+        {
+            return GlobDirectoriesAllowEmpty((string) directory, patterns).Select(x => (AbsolutePath) x).ToList();
+        }
+
+        [Pure]
+        public static IReadOnlyCollection<string> GlobFilesAllowEmpty(string directory, params string[] patterns)
+        {
+            var directoryInfo = new DirectoryInfo(directory);
+            return patterns.SelectMany(x => Glob.Files(directoryInfo, x, GlobOptions)).Select(x => x.FullName).ToList();
+        }
+
+        [Pure]
+        public static IReadOnlyCollection<AbsolutePath> GlobFilesAllowEmpty(this AbsolutePath directory, params string[] patterns)
+        {
+            return GlobFiles((string) directory, patterns).Select(x => (AbsolutePath) x).ToList();
+        }
+
+        [Pure]
+        public static IReadOnlyCollection<string> GlobDirectoriesAllowEmpty(string directory, params string[] patterns)
+        {
             var directoryInfo = new DirectoryInfo(directory);
             return patterns.SelectMany(x => Glob.Directories(directoryInfo, x, GlobOptions)).Select(x => x.FullName).ToList();
         }
 
-        public static IReadOnlyCollection<AbsolutePath> GlobDirectories(this AbsolutePath directory, params string[] patterns)
+        [Pure]
+        public static IReadOnlyCollection<AbsolutePath> GlobDirectoriesAllowEmpty(this AbsolutePath directory, params string[] patterns)
         {
             return GlobDirectories((string) directory, patterns).Select(x => (AbsolutePath) x).ToList();
         }

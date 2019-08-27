@@ -173,7 +173,7 @@ partial class Build : NukeBuild
                     .SetSource(Source)
                     .SetApiKey(ApiKey)
                     .CombineWith(
-                        OutputDirectory.GlobFiles("*.nupkg").NotEmpty(), (cs, v) => cs
+                        OutputDirectory.GlobFiles("*.nupkg"), (cs, v) => cs
                             .SetTargetPath(v)),
                 degreeOfParallelism: 5,
                 completeOnFailure: true);
