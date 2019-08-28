@@ -152,7 +152,6 @@ partial class Build : NukeBuild
             DotNetTest(s => s
                 .SetConfiguration(Configuration)
                 .SetNoBuild(IsLocalBuild)
-                .AddEnvironmentVariable("TEAMCITY_VERSION", "2019.2")
                 .When(IsLocalBuild, cs => cs
                     .SetLogger("trx")
                     .SetResultsDirectory(OutputDirectory))
