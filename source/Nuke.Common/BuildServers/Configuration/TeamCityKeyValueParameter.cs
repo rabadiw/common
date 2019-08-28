@@ -18,7 +18,7 @@ namespace Nuke.Common.BuildServers.Configuration
             writer.WriteLine("param(");
             using (writer.Indent())
             {
-                writer.WriteLine(Key.DoubleQuote());
+                writer.WriteLine($"{Key.DoubleQuote()},");
                 writer.WriteLine(Value.DoubleQuote());
             }
 
