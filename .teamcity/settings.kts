@@ -43,6 +43,10 @@ project {
             value = "https://api.nuget.org/v3/index.json",
             allowEmpty = true,
             display = ParameterDisplay.NORMAL)
+        param(
+            "teamcity.runner.commandline.stdstreams.encoding",
+            "IBM-437"
+        )
     }
 }
 object VcsRoot : GitVcsRoot({
@@ -60,9 +64,10 @@ object Compile : BuildType({
         root(VcsRoot)
     }
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Restore Compile --skip"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Restore Compile --skip")
+            noProfile = true
         }
     }
 })
@@ -75,9 +80,10 @@ object Pack : BuildType({
         output/*.nupkg
     """.trimIndent()
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Pack --skip"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Pack --skip")
+            noProfile = true
         }
     }
     triggers {
@@ -114,9 +120,10 @@ object Test_P1T2 : BuildType({
         output/*.trx
     """.trimIndent()
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Test --skip --partition-test 1/2"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Test --skip --partition-test 1/2")
+            noProfile = true
         }
     }
     dependencies {
@@ -135,9 +142,10 @@ object Test_P2T2 : BuildType({
         output/*.trx
     """.trimIndent()
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Test --skip --partition-test 2/2"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Test --skip --partition-test 2/2")
+            noProfile = true
         }
     }
     dependencies {
@@ -192,9 +200,10 @@ object Publish : BuildType({
         root(VcsRoot)
     }
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Publish --skip"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Publish --skip")
+            noProfile = true
         }
     }
     params {
@@ -242,9 +251,10 @@ object Announce : BuildType({
         root(VcsRoot)
     }
     steps {
-        exec {
-            path = "build.sh"
-            arguments = "Announce --skip"
+        powerShell {
+            scriptMode = file { path = "build.ps1" }
+            param("jetbrains_powershell_scriptArguments","Announce --skip")
+            noProfile = true
         }
     }
     triggers {
