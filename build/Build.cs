@@ -152,11 +152,6 @@ partial class Build : NukeBuild
             DotNetTest(s => s
                 .SetConfiguration(Configuration)
                 .SetNoBuild(IsLocalBuild)
-                .When(IsLocalBuild, cs => cs
-                    .SetLogger("trx")
-                    .SetResultsDirectory(OutputDirectory))
-                .When(TeamCity.Instance != null, cs => cs
-                    .SetLogger("teamcity"))
                 .CombineWith(
                     TestPartition.GetCurrent(Solution.GetProjects("*.Tests")), (cs, v) => cs
                         .SetProjectFile(v)));
