@@ -35,7 +35,7 @@ using static Nuke.Common.Tools.Slack.SlackTasks;
 [DotNetVerbosityMapping]
 [UnsetVisualStudioEnvironmentVariables]
 [CustomTeamCity(
-    TeamCityAgentPlatform.Unix,
+    TeamCityAgentPlatform.Windows,
     AutoGenerate = false,
     DefaultBranch = "develop",
     VcsTriggeredTargets = new[] { nameof(Pack), nameof(Test) },
